@@ -4,6 +4,7 @@ It is needed to get essential information for booking a flight.
 """
 import requests
 import datetime
+
 def flights(from_coordinates, to_coordinates, date, value, typeFlight,rt): #function flights() takes 5 positional arguments: departure place, arrival place, date of flying and flight attributes as sorting priority and flightType(round/oneway)
     dt = str(date[8:10])+"%2F"+str(date[5:7])+"%2F"+str(date[:4])
     while True:
@@ -16,9 +17,9 @@ def flights(from_coordinates, to_coordinates, date, value, typeFlight,rt): #func
         for flight in data:
             try:
                 booking_token = flight["booking_token"]
+                tup = (currency, booking_token)
             except:
                 pass #nevhodny/neaktualny dataset
-        tup = (currency, booking_token)
         if data == []:
             if flights["_results"] == 0:
                 print("I'm sorry but no such flight was found.\nTry again.")
