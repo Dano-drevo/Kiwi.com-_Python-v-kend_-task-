@@ -81,6 +81,7 @@ class Airport(Name): #IATA code authorization. However it checks only form of in
     def validate(self):
         if super().validate():
             if len(self.airport) == 3:
+                self.airport = self.airport.upper()
                 return True
 
 
