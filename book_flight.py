@@ -36,10 +36,10 @@ def booking_data(dic):
 #function that links all the funcionality of program together and returns confirmation of booking - PNR code
 def book_the_flight():
     dic1 = info(flight_data,lst,dic) #first ditionary, resposible for flight attributes
-    currency, booking_token = flights(dic1['from'][0], dic1['to'][0], dic1['date'][0], value, typeFlight, rt) #using flights module to find a wishing flight
-    if (currency,booking_token) == ():
-        system.os('clear')
-        print('Something went wrong. Please try to use application once again.\n')
+    tup = flights(dic1['from'][0], dic1['to'][0], dic1['date'][0], value, typeFlight, rt) #using flights module to find a wishing flight
+    if tup != ():
+        currency, booking_token = tup[0],tup[1]
+    else:
         return
     dic2 = info(personal_data,[],{}) #second dictionary ,resposible for customer information
     dic2['currency'] = currency
