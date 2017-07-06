@@ -18,13 +18,13 @@ def flights(from_coordinates, to_coordinates, date, value, typeFlight,rt): #func
                 booking_token = flight["booking_token"]
             except:
                 pass #nevhodny/neaktualny dataset
-        if data == {}:
-            if r.json()["_results"] == 0:
+        tup = (currency, booking_token)
+        if data == []:
+            if flights["_results"] == 0:
                 print("I'm sorry but no such flight was found.\nTry again.")
                 tup = ()
                 break
         else:
-            tup = (currency, booking_token)
             break
     return tup #function returns tuple containing 'currency' and 'booking_token', 2 necessery items for process of booking
 
