@@ -99,7 +99,7 @@ class Date(): #correct date format authorization
 class Birthday(Date):#correct birthday date format authorization
     def __init__(self,date):
         super().__init__(date)
-        self.birthday = datetime.datetime.strptime(date,'%Y-%m-%d').strftime('%Y-%m-%d')
+        self.birthday = date
     def validate(self):
         if super().validate():
             if int(self.date[:4]) <= 1900:
@@ -107,6 +107,7 @@ class Birthday(Date):#correct birthday date format authorization
             elif self.date >= time.strftime("%Y-%m-%d"):
                 print('You cannot be that young, please, set a valid birthday.')
             else:
+                self.birthday = datetime.datetime.strptime(self.birthday,'%Y-%m-%d').strftime('%Y-%m-%d')
                 return True
 
 
