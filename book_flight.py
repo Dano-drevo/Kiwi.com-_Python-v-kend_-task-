@@ -1,6 +1,6 @@
 """
 Main part of the application. It's resposible for optional arguments and work with them.
-Also with help of other modules, it executes all the process of finding, checking and booking a flight, ending with outputing PNR code.
+Also with help of other modules, it executes all the process of finding, checking(in terms of valid existence) and booking a flight, ending with outputing PNR code.
 """
 import os
 import argparse
