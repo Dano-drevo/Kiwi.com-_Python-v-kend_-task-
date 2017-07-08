@@ -33,7 +33,7 @@ def booking_data(dic):
 
 
 
-#function that links all the funcionality of program together and returns confirmation of booking - PNR code
+#function that links all the funcionality of the program together and returns confirmation of booking - PNR code
 def book_the_flight():
     dic1 = info(flight_data,lst,dic) #first ditionary, resposible for flight attributes
     tup = flights(dic1['from'][0], dic1['to'][0], dic1['date'][0], value, typeFlight, rt) #using flights module to find a wishing flight
@@ -67,6 +67,7 @@ args = parser.parse_args()
 dic = vars(args)
 
 #next lines of code are resposible for deciding which values will be used in program and what attributes should meet the wishing flight
+#optional argument overwrites the default one, even if both given. This means when given '--cheapest' and '--shortest' at the same time. Program will ignore default value ('--cheapest' in this case) and will continue with work only with '--shortest'
 dic['one-way'] = dic.pop('one_way')
 if dic['date'] == 'now':
     dic["date"] = time.strftime("%Y-%m-%d")
