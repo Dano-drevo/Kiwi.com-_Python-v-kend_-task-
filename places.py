@@ -6,7 +6,7 @@ It uses kiwi.com API named 'places'.
 import requests
 import os
 def places(destination):
-    r = requests.get("https://api.skypicker.com/places?term=" + destination + "&locale=en&v=2")
+    r = requests.get("https://locations.skypicker.com/locations?term=" + destination + "&locale=en&v=2")
     lst = r.json()
     cities = []
     for item in lst:
