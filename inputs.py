@@ -145,7 +145,7 @@ def destination(where): #function resposbile for finding and validating destinat
                 destination = places(answer)  #here is used module places
                 if not destination:
                     continue
-                a = input("I have found "+nice(answer)+', '+destination[1]+".\nIs it correct? if yes, type 'y', if not, press any other key.\n\n")
+                a = input("I have found "+nice(answer)+', '+destination[1]+".\nIs it correct? if yes, type 'y', if not, type anything and press 'enter'.\n\n")
                 if a.lower() == 'y':
                     break
                 os.system('clear')
