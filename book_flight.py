@@ -1,6 +1,6 @@
 """
 Main part of the application. It's resposible for optional arguments and work with them.
-Also with help of other modules, it executes all the process of finding, checking(in terms of valid existence) and booking a flight, ending with outputing PNR code.
+Also with help of other modules, it executes all the process of finding, checking and booking a flight, ending with outputing PNR code.
 """
 import os
 import argparse
@@ -33,28 +33,32 @@ def booking_data(dic):
 
 
 
-#function that links all the funcionality of the program together and returns confirmation of booking - PNR code
+#function that links all the funcionality of the program together and returns confirmation of the booking - PNR code
 def book_the_flight():
     dic1 = info(flight_data,lst,dic) #first ditionary, resposible for flight attributes
     tup = flights(dic1['from'][0], dic1['to'][0], dic1['date'][0], value, typeFlight, rt) #using flights module to find a wishing flight
+    noLongerNeeded='''
     if tup != ():
         currency, booking_token = tup[0],tup[1]
     else:
+        print("The booking operations have changed")
         return
     dic2 = info(personal_data,[],{}) #second dictionary ,resposible for customer information
     dic2['currency'] = currency
     dic2['booking_token'] = booking_token
     url = 'http://37.139.6.125:8080/booking'
-    r = requests.post(url,headers={'content-type': 'application/json'}, data=json.dumps(booking_data(dic2))) #process of booking
+    r = requests.post(url,headers={'content-type': 'application/json'}, data=json.dumps(booking_data(dic2))) #process of the booking
     try:
         pnr = r.json()['pnr']
-        print("Congratulations ! You've just booked your flight.\nThis is your PNR number:      '"+pnr+"'\nDon't lose it ;)") #final line of code, printing PNR number, which represents booked flight and job done
+        print("Congratulations ! You've just booked your flight.\nThis is your PNR number:      '"+pnr+"'\nDon't lose it ;)")           #Final line of the code, printing PNR number, which represents
+                                                                                                                                        #booked flight and job done.
         return pnr
     except:
         system.os('clear')
         print('There might be some problem with the server. Please wait a little and try it again.\n')
+'''
 
-#setting an enviroment for optional argument entering
+#setting up an enviroment for optional argument entering
 parser = argparse.ArgumentParser()
 parser.add_argument("-d","--date",help = "Date of your flight, enter in YYYY-MM-DD format. You can also enter 'now' for today's date.",type = str)
 parser.add_argument("-f","--from",help = 'Departure destination. Please enter an airport IATA code',type = str)
@@ -66,8 +70,7 @@ parser.add_argument("-s","--shortest",help = 'Book the shortest flight.',action=
 args = parser.parse_args()
 dic = vars(args)
 
-#next lines of code are resposible for deciding which values will be used in program and what attributes should meet the wishing flight
-#optional argument overwrites the default one, even if both given. This means when given '--cheapest' and '--shortest' at the same time. Program will ignore default value ('--cheapest' in this case) and will continue with work only with '--shortest'
+#next lines of the code are resposible for deciding which values will be used in program and what attributes should meet the wishing flight
 dic['one-way'] = dic.pop('one_way')
 if dic['date'] == 'now':
     dic["date"] = time.strftime("%Y-%m-%d")
@@ -95,4 +98,4 @@ if 'one-way' in lst:
 else:
     typeFlight = 'round'
 
-pnr = book_the_flight()
+pnr = book_the_flight() #executing the "root" function which calls the others
