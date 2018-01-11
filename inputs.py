@@ -74,7 +74,7 @@ class Name(): #name  authorization, method checks if the string is letter-only b
         return self.name.isalpha()
 
 
-class Airport(Name): #IATA code authorization. However it checks only form of input, not actual existence of airport. If the user uses wrong IATA, he won't find anything.
+class Airport(Name): #IATA code authorization. However it checks only form of the input, not actual existence of an airport. If the user uses the wrong IATA, he won't find anything.
     def __init__(self,name):
         self.airport = name
         super().__init__(name)
@@ -112,7 +112,7 @@ class Birthday(Date):#correct birthday date format authorization
                 return True
 
 
-def nice(text): #function which transformes complex words with white spaces into nice representation aka the first letters are  transformed to uppercase.
+def nice(text): #function which transformes complex words with white spaces into nice representation aka the first letters are transformed to uppercase.
     if ' ' in text:
         text = text.split(' ')
         for txt in text:
@@ -131,21 +131,26 @@ def destination(where): #function resposbile for finding and validating destinat
         os.system('clear')
         if a.lower() in ['a','b']:
             if a.lower() == 'a':
-                destination = input(where+'What airport is on your mind ?\n')
-                destination = Airport(destination)
-                if not destination.validate():
+                dest = input(where+'What airport is on your mind ?\n')
+                dest = Airport(dest)
+                if not dest.validate():
                     os.system('clear')
                     print('Your input is not IATA code.\n')
                     continue
                 else:
-                    destination = destination.name.upper()
-                    break
+                    dest = dest.name.upper()
+                    dest=places(dest,'airport')
+                    if not dest:
+                        continue
+                    a = input("I have found "+dest[1] +', '+dest[2]+".\nIs it correct? if yes, type 'y', if not, press any other key.\n\n")
+                    if a.lower() == 'y':
+                        break
             elif a.lower() == 'b':
                 answer = input(where + 'What city is on your mind ?\n')
-                destination = places(answer)  #here is used module places
-                if not destination:
+                dest = places(answer,'city')  #here is used module places
+                if not dest:
                     continue
-                a = input("I have found "+nice(answer)+', '+destination[1]+".\nIs it correct? if yes, type 'y', if not, type anything and press 'enter'.\n\n")
+                a = input("I have found "+dest[1] +', '+dest[2]+".\nIs it correct? if yes, type 'y', if not, press any other key.\n\n")
                 if a.lower() == 'y':
                     break
                 os.system('clear')
@@ -154,7 +159,7 @@ def destination(where): #function resposbile for finding and validating destinat
             os.system('clear')
             print("You have to choose between 'a' and 'b'.\n")
             continue
-    return destination  #if user searches with IATA code, function return IATA code. However, if user searchs according to the city name, function return tuple containing name of the city and home country
+    return dest  #if user searches with IATA code, function return IATA code. However, if user searchs according to the city name, function return tuple containing name of the city and home country
 
 
 
@@ -166,7 +171,7 @@ def info(data,lst,dic):
             if key in lst: #in case of already entered opitonal argument,
                 answer = dic[key]
                 instance = eval(value[1])(answer)
-            elif key in ['from','to']: #destination is specific, therfore it has special handling
+            elif key in ['from','to']: #destination is specific, therefore it has special handling
                     value[0] = destination(value[0])
                     if not isinstance(value[0],tuple): #in case user searches according to the destination name
                             instance = Airport(value[1])
@@ -185,7 +190,7 @@ def info(data,lst,dic):
                 break
             else:
                 if key in lst:
-                    lst.remove(key) #in case of wrong already entered optional argument
+                    lst.remove(key) #in case of already entered wrong optional argument
                 print('You have entered an incorrect value. Try again.\n')
                 continue
         if not isinstance(value[0],tuple):
