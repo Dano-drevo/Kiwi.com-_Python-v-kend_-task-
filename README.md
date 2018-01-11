@@ -9,7 +9,7 @@ The facts, that KIWI.com APIs depreciated and also KIWI.com booking_challenge ha
 -------------------------------------------------------------------------------------------------------------------------------
 Nevertheless, I've decided to keep this code alive and I also kept former lines and marked them as comments (#).
 -----------------------------------------------------------------------------------------------------------------------------
-The program will display only price of the flight, number of the stops between the takeoff and the landing, and will also provide user with a link to the webpage on which he is enabled to book a given flight.
+The program as it is now will display only price of the flight, number of the stops between the takeoff and the landing, and will also provide user with a link to the webpage on which he is enabled to book a given flight.
 ####################################################################
 -------------------------------------------------------------------------------------------------------------------------------
 
