@@ -4,7 +4,7 @@ Task for a python challenge organized by KIWI.com
 
 Simple command line application for flight booking simulation using kiwi.com APIs.
 
-Execute with "--help" flag to dosplay program options and their usage.
+Execute with "--help" flag to display program options and their usage.
 
 In order to start   "book_flight.py"   its necesery to use modules  'flights.py',  'places.py'   and   'inputs.py'.
 
