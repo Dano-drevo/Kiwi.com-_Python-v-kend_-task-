@@ -5,7 +5,7 @@ UPDATE:
 --------
 ####################################################################
 -------------------------------------------------------------------------------------------------------------------------------
-The facts, that KIWI.com APIs depreciated and also KIWI.com booking_challenge has ended and thus also booking server cannot be accessed and used anymore(book_flight.py) by this program mean that it serves the original purpose no more.
+The facts, that KIWI.com APIs depreciated and also KIWI.com booking_challenge has ended mean the booking server cannot be accessed and used anymore(book_flight.py) by this program e.i. it serves the original purpose no more. However, user can search for a ticket and program will provide him with the specific link to the merchant(https://www.kiwi.com/) webpage.
 -------------------------------------------------------------------------------------------------------------------------------
 Nevertheless, I've decided to keep this code alive and I also kept former lines and marked them as comments (#).
 -----------------------------------------------------------------------------------------------------------------------------
