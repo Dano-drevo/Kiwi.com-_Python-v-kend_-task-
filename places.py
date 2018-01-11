@@ -5,7 +5,7 @@ It used to use kiwi.com API named 'places', but now the 'locations' API is neede
 import requests
 import os
 def places(destination,strng):
-    url="https://api.skypicker.com/locations?term=" + destination + "&locale=en"#&location_types="+strng
+    url="https://api.skypicker.com/locations?term=" + destination + "&locale=en&location_types="+strng
     r = requests.get(url)
     lst = r.json()['locations']
     cities = []
