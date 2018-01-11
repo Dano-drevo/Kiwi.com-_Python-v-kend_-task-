@@ -6,8 +6,11 @@ Simple command line application for flight booking simulation using kiwi.com API
 
 "book_flight.py" is main program and it uses other ones as modules.
 Execute with "--help" flag to display program usage shown below.
+```
+$python book_flight.py --help
+```
 
-```$python book_flight.py --help
+```
 >>>
 usage: book_flight.py [-h] [-d DATE] [-f FROM] [-t TO] [-r RETURN] [-o] [-c]
                       [-s]
