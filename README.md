@@ -5,7 +5,7 @@ UPDATE:
 --------
 ####################################################################
 -------------------------------------------------------------------------------------------------------------------------------
-The facts, that KIWI.com APIs depreciated and also KIWI.com booking_challenge has ended and thus also booking server cannot be accessed and used anymore(gook_flight.py) by this program mean that it serves the original purpose no more.
+The facts, that KIWI.com APIs depreciated and also KIWI.com booking_challenge has ended and thus also booking server cannot be accessed and used anymore(book_flight.py) by this program mean that it serves the original purpose no more.
 -------------------------------------------------------------------------------------------------------------------------------
 Nevertheless, I've decided to keep this code alive and I also kept former lines and marked them as comments (#).
 -----------------------------------------------------------------------------------------------------------------------------
