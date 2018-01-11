@@ -4,12 +4,14 @@ Task for a python challenge organized by KIWI.com
 UPDATE:
 --------
 ####################################################################
+
 The facts, that KIWI.com APIs depreciated and also KIWI.com booking_challenge has ended mean the booking server cannot be accessed and used anymore(book_flight.py) by this program e.i. it serves the original purpose no more. However, user can search for a ticket and program will provide him with the specific link to the merchant(https://www.kiwi.com/) webpage.
 -------------------------------------------------------------------------------------------------------------------------------
 Nevertheless, I've decided to keep this code alive and I also kept former lines and marked them as comments (#).
 -----------------------------------------------------------------------------------------------------------------------------
 The program as it is now will display only price of the flight, number of the stops between the takeoff and the landing, and will also provide user with a link to the webpage on which he is enabled to book a given flight.
 --------------------
+
 ####################################################################
 
 ABOUT:
