@@ -1,6 +1,6 @@
 """
 This module is designed to get geographic coordinate system from location's description entered by the user.
-It uses kiwi.com API named 'places'.
+It used to use kiwi.com API named 'places', but now the 'locations' API is needed instead.
 """
 import requests
 import os
