@@ -1,5 +1,5 @@
 """
-This module represents functions and classes resposible for requesting valid inputs according to criteria of arguments.
+This module represents functions and classes resposible for requesting valid inputs from a user according to criteria of arguments.
 """
 import os
 import re
