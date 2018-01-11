@@ -1,5 +1,5 @@
 """
-This module is designed to get geographic coordinate system from location's english name.
+This module is designed to get geographic coordinate system from location's description entered by the user.
 It uses kiwi.com API named 'places'.
 """
 import requests
