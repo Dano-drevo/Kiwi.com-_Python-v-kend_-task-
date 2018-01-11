@@ -74,8 +74,7 @@ class Name(): #name  authorization, method checks if the string is letter-only b
         return self.name.isalpha()
 
 
-class Airport(Name): #IATA code authorization. However it checks only form of the input, not actual existence of an airport. If the user uses the wrong IATA, he won't find anything.
-    def __init__(self,name):
+class Airport(Name): #IATA code authorization. However it checks only form of the input, not actual existence of an airport. That is managed by KIWI.com 'flights' API
         self.airport = name
         super().__init__(name)
     def validate(self):
